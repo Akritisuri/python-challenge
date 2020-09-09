@@ -4,7 +4,7 @@ import csv
 # Get the Data from the CSV file in the resources folder
 Budget_csv = os.path.join("Resources", "budget_data.csv")
 
-# Open the file using write mode while holding the contents in the correct file
+# Open the file using the read function
 with open(Budget_csv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvfile)
@@ -38,7 +38,7 @@ with open(Budget_csv, newline="") as csvfile:
     # Print the analysis
     print("Financial Analysis")
     
-    print("..................................")
+    print("----------------------------------")
     
     print("Total months: ", len(months))
     
@@ -50,4 +50,6 @@ with open(Budget_csv, newline="") as csvfile:
     
     print("Greatest decrease in profits: {} (${})".format(str(months[revenue_change.index(min(revenue_change))+1]), str(greatest_decrease)))
     
-
+    # Export the output to a text file
+    file = open("pybankoutput.txt", "w")
+    data = ["Financial Analysis \n", "------------------------- \n", "Total Months: {} \n".format(len(months)), "Total: ${} \n" ]
