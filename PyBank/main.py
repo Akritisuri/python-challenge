@@ -6,4 +6,7 @@ Budget_csv = os.path.join("..", "Resources", "budget_data.csv")
 
 # Open the file using write mode while holding the contents in the correct file
 with open(Budget_csv, newline=" ") as csvfile:
-
+csvreader = csv.reader(csvfile, delimiter=",")
+print(csvreader)
+# Skip the header row
+csv_header = next(csvfile)
