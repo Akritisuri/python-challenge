@@ -52,7 +52,7 @@ with open(Budget_csv, newline="") as csvfile:
     
     # Export the output to a text file
     file = open("pybankoutput.txt", "w")
-    data = ["Financial Analysis \n", "------------------------- \n", "Total Months: {} \n".format(len(months)), "Total: ${} \n".format(str(revenue_average)), "Greatest increase in profits: {} (${})".format(str(months[revenue_change.index(max(revenue_change))+1]), str(greatest_increase)), "Greatest decrease in profits: {} (${})".format(str(months[revenue_change.index(min(revenue_change))+1]), str(greatest_decrease))]
+    data = ["Financial Analysis \n", "------------------------- \n", "Total Months: {} \n".format(len(months)), "Total: ${} \n".format(str(revenue_average)), "Greatest increase in profits: {} (${}) \n".format(str(months[revenue_change.index(max(revenue_change))+1]), str(greatest_increase)), "Greatest decrease in profits: {} (${})".format(str(months[revenue_change.index(min(revenue_change))+1]), str(greatest_decrease))]
 
     file.writelines(data)
     file.close()
