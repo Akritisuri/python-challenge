@@ -13,7 +13,13 @@ csv_header = next(csvfile)
 
 # Append the values to the correct rows for months and the total profit
 for row in csvreader:
-total_months.Append(row[0])
-total_profit.Append(int(row[1]))
+total_months = total_months.Append(row[0])
+total_profit = total_profit.Append(int(row[1]))
 
-#
+# Find the change in revenue
+
+# Print the analysis
+print("Financial Analysis")
+print("..................................")
+print("Total months: " + str(total_months))
+print("Total: " + "$" + str(sum(total_profit)))
