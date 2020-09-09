@@ -30,14 +30,39 @@ with open(election_csv, 'r') as csvfile:
         if candidate == "Khan":
             Khan.append(candidates)
             Khan_votes = len(Khan)
+        elif candidate == "Correy":
+            Correy.append(candidates)
+            Correy_votes = len(Correy)
+        elif candidate == "Li":
+            Li.append(candidates)
+            Li_votes = len(Li)
+        else:
+            Otooley.append(candidates)
+            Otooley_votes = len(Li)
     print(Khan_votes)
-    
+    print(Correy_votes)
+    print(Li_votes)
+    print(Otooley_votes)
     
     #Calculate the total number of votes
     total_votes = (len(votes))
     print(total_votes)
     
-   
+    #Calculate the percentages
+    KP = round((Khan_votes / total_votes) * 100, 2)
+    CP = round((Correy_votes / total_votes) * 100, 2)
+    LP = round((Li_votes / total_votes) * 100, 2)
+    OP = round((Otooley_votes / total_votes) * 100, 2)
+    
+    # To find the winner
+    winner = [KP, CP, LP, OP]
+    Election_winner = max(winner)
+    print(Election_winner)
+    if winner == KP:
+        winner_name = "Khan"
+        
+    elif winner == CP:
+        winner =
     #Print the results
-    print("Khan")
+    print(KP, CP, LP, OP)
     
