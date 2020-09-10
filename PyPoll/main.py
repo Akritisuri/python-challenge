@@ -38,15 +38,10 @@ with open(election_csv, 'r') as csvfile:
             Li_votes = len(Li)
         else:
             Otooley.append(candidates)
-            Otooley_votes = len(Li)
-    print(Khan_votes)
-    print(Correy_votes)
-    print(Li_votes)
-    print(Otooley_votes)
+            Otooley_votes = len(Otooley)
     
     #Calculate the total number of votes
     total_votes = (len(votes))
-    print(total_votes)
     
     #Calculate the percentages
     KP = round((Khan_votes / total_votes) * 100, 2)
@@ -57,12 +52,48 @@ with open(election_csv, 'r') as csvfile:
     # To find the winner
     winner = [KP, CP, LP, OP]
     Election_winner = max(winner)
-    print(Election_winner)
-    if winner == KP:
+
+    if Election_winner == KP:
         winner_name = "Khan"
         
-    elif winner == CP:
-        winner =
-    #Print the results
-    print(KP, CP, LP, OP)
+    elif Election_winner == CP:
+        winner_name = "Correy"
+        
+    elif Election_winner == LP:
+        winner_name = "Li"
+        
+    else:
+        winner_name = "O'Tooley"
+        
+  
     
+    #Print the results
+    print("Election Results")
+    print("----------------------")
+    print(f"Total Votes: {total_votes}")
+    print("-----------------------")
+    print(f"Khan: {KP}% ({Khan_votes})")
+    print(f"Correy: {CP}% ({Correy_votes})")
+    print(f"Li: {LP}% ({Li_votes})")
+    print(f"O'Tooley: {OP}% ({Otooley_votes})")
+    print("------------------------")
+    print(f"Winner: {winner_name}")
+    print("-------------------------")
+
+    #Export the output to a text file
+    file = open("pypolloutput.txt", "w")
+    data = ["Election Results \n",
+    "--------------------- \n",
+    "Total Votes: {} \n".format(total_votes),
+    "---------------------- \n",
+    "Khan: {}% ({}) \n".format(KP, Khan_votes),
+    "Correy: {}% ({}) \n".format(CP, Correy_votes),
+    "Li: {}% ({}) \n".format(LP, Li_votes),
+    "O'Tooley: {}% ({}) \n".format(OP, Otooley_votes),
+    "-------------------- \n",
+    "Winner: {} \n".format(winner_name),
+     "------------------ \n"]
+    
+    file.writelines(data)
+    file.close()
+
