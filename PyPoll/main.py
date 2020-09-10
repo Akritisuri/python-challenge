@@ -85,14 +85,14 @@ with open(election_csv, 'r') as csvfile:
     data = ["Election Results \n",
     "--------------------- \n",
     "Total Votes: {} \n".format(total_votes),
-    "---------------------- \n",
+    "--------------------- \n",
     "Khan: {}% ({}) \n".format(KP, Khan_votes),
     "Correy: {}% ({}) \n".format(CP, Correy_votes),
     "Li: {}% ({}) \n".format(LP, Li_votes),
     "O'Tooley: {}% ({}) \n".format(OP, Otooley_votes),
-    "-------------------- \n",
+    "--------------------- \n",
     "Winner: {} \n".format(winner_name),
-     "------------------ \n"]
+     "--------------------- \n"]
     
     file.writelines(data)
     file.close()
